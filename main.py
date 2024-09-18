@@ -50,7 +50,7 @@ async def updateData(guild):
             if email==thread.name:
                 isset=True
         if not isset:
-            rs=await RESULT['threadsCh'].create_thread(name=user.split('||')[1].replace('``',''),content='https://suno.com/@'+user.split('||')[0].replace('``',''))
+            rs=await RESULT['threadsCh'].create_thread(name=user.split('||')[1].replace('``',''),content='https://suno.com/@'+user.split('||')[0].replace('``','').lower())
             req=requests.get('https://suno.com/@'+user.split('||')[0].replace('``',''))
             soup=BeautifulSoup(req.text,'html.parser')
             els=soup.find('div',{'class':'flex flex-col lg:flex-row gap-8 px-4 pb-8 lg:p-8 pt-16 items-center -mt-32 md:mt-0 z-[20]'}).find('div',{'class':'flex flex-col lg:flex-row gap-8 w-full lg:w-auto'}).find('div',{'class':'flex flex-col'}).find('div',{'class':'flex flex-row gap-2'}).find_all('div')
